@@ -1,0 +1,4 @@
+path=`pwd`
+target=$path/site-packages
+PYTHONPATH=$PYTHONPATH:$target
+$path/pip install --target $target $*

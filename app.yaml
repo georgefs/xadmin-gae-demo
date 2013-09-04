@@ -1,0 +1,34 @@
+application: pacific-apex-218
+version: xadmin
+runtime: python27
+api_version: 1
+threadsafe: false
+
+
+libraries:
+- name: ssl
+  version: latest
+- name: django
+  version: 1.4
+- name: PIL
+  version: latest
+
+
+handlers:
+- url: /static
+  static_dir: statics/static
+
+- url: /.*
+  script: demo_app.demo.wsgi.application
+
+
+skip_files:
+- ^site-packages/.*\.egg-info(/.*)?
+- ^site-packages/app.pth$
+- ^build$
+- ^pip$
+- ^easy_install$
+
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'demo_app.demo.settings'

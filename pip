@@ -1,0 +1,8 @@
+#!/bin/bash
+
+site_path=`pwd`/site-packages
+PYTHONPATH=$PYTHONPATH:$site_path
+
+export PYTHONPATH
+
+pip $*
